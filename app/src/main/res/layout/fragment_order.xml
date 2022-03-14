@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".fragments.OrderFragment">
+
+
+        <Button
+            android:id="@+id/btnSeafood"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:text="Seafood"
+            app:layout_constraintBottom_toTopOf="@+id/btnSalads"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnPizza"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnSalads"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:text="Salads"
+            app:layout_constraintBottom_toTopOf="@+id/btnCart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnWings"
+            app:layout_constraintTop_toBottomOf="@+id/btnSeafood" />
+
+        <Button
+            android:id="@+id/btnCart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:text="0 items in cart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnBurgers"
+            app:layout_constraintTop_toBottomOf="@+id/btnSalads" />
+
+        <Button
+            android:id="@+id/btnPizza"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Pizza"
+            app:layout_constraintBottom_toTopOf="@+id/btnWings"
+            app:layout_constraintEnd_toStartOf="@+id/btnSeafood"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnWings"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Wings"
+            app:layout_constraintBottom_toTopOf="@+id/btnCart"
+            app:layout_constraintEnd_toStartOf="@+id/btnSalads"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnPizza" />
+
+        <Button
+            android:id="@+id/btnBurgers"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Burgers"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnCart"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnWings" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
