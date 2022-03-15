@@ -1,5 +1,7 @@
 package com.example.learningandroid.fragments
 
+import android.app.Activity
+import android.app.AppComponentFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -8,10 +10,14 @@ import android.widget.CheckBox
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.view.isVisible
+import com.example.learningandroid.HamburgerItem
+import com.example.learningandroid.MainActivity
 import com.example.learningandroid.R
 
 
 class HamburgersFragment : Fragment(R.layout.fragment_hamburgers) {
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,8 +30,8 @@ class HamburgersFragment : Fragment(R.layout.fragment_hamburgers) {
         val cbLettuce = view.findViewById<CheckBox>(R.id.cbLettuce)
         val rgCheese = view.findViewById<RadioGroup>(R.id.rgCheese)
         val btnBack = view.findViewById<Button>(R.id.btnBack)
-        val startFragment = StartFragment()
         val orderFragment = OrderFragment()
+        val cartFragment = CartFragment()
 
 
         cbCheese.setOnClickListener{
@@ -43,24 +49,28 @@ class HamburgersFragment : Fragment(R.layout.fragment_hamburgers) {
             val cheese = cbCheese.isChecked
             val onion = cbOnion.isChecked
             val lettuce = cbLettuce.isChecked
-            val orderString = "Hamburger\n" +
-                    "${meat.text.toString()}" +
-                    (if(cheese) "\n${cheeseType.text.toString()} Cheese" else "No cheese") +
+            val hamburgerItem = HamburgerItem(meat.text.toString(),  (if(cheese) "\n${cheeseType.text} Cheese" else "No cheese"),
+                (if(onion) "\nOnion" else "No Onion"),
+                (if(lettuce) "\nLettuce" else "No Lettuce"))
+            val orderString = "${meat.text} Hamburger\n" +
+                    (if(cheese) "\n${cheeseType.text} Cheese" else "No cheese") +
                     (if(onion) "\nOnion" else "No onion") +
                     (if(lettuce) "\nLettuce" else "No lettuce")
-            val bundle: Bundle = Bundle()
-            bundle.putString("hamburgerOrder", orderString)
-            orderFragment
-            //view.findViewById<TextView>(R.id.tvOrder).text = "Item added"
+            (activity as MainActivity).addItemToList(orderString)
+            val bundle = Bundle()
+            //bundle.putString("hamburgerOrder", orderString)
+            //bundle.putSerializable("hamburgerOrder", hamburgerItem)
+            //cartFragment.arguments = bundle
+
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, orderFragment)
+                replace(R.id.fragment, cartFragment)
                 commit()
             }
         })
 
         btnBack.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, startFragment)
+                replace(R.id.fragment, orderFragment)
                 commit()
             }
         }
