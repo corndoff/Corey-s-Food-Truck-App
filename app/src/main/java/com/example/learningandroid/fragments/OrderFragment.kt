@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.example.learningandroid.MainActivity
 import com.example.learningandroid.R
 
 
@@ -73,6 +74,10 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
                 commit()
             }
         }
+
+        val cartAmount = (activity as MainActivity).getItemList().count()
+        var cartButton = view.findViewById<Button>(R.id.btnCart)
+        cartButton.text = "${cartAmount} item(s) in the cart"
         btnCart.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, cartFragment)

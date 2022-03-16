@@ -21,15 +21,14 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     }
-
     fun getItemList(): List<String>{
         var items: MutableList<String> = mutableListOf()
-        items = this.order
+        items = order
         return items
     }
 
     fun addItemToList(item: String){
-        this.order.add(item)
+        order.add(item)
     }
 
 }

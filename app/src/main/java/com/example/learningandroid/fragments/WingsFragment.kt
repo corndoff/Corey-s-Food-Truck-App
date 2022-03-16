@@ -8,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.view.isVisible
+import com.example.learningandroid.MainActivity
 import com.example.learningandroid.R
 
 
@@ -16,7 +17,7 @@ class WingsFragment : Fragment(R.layout.fragment_wings) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val orderFragment = OrderFragment()
+        val cartFragment = CartFragment()
         val startFragment = StartFragment()
         val btnOrder = view.findViewById<Button>(R.id.btnOrder)
         val btnBack = view.findViewById<Button>(R.id.btnBack)
@@ -25,8 +26,15 @@ class WingsFragment : Fragment(R.layout.fragment_wings) {
         val rgSauce = view.findViewById<RadioGroup>(R.id.rgSauce)
 
         btnOrder.setOnClickListener {
+
+            var wingAmount = view.findViewById<RadioButton>(rgAmount.checkedRadioButtonId)
+            var wingType = view.findViewById<RadioButton>(rgWings.checkedRadioButtonId)
+            var wingSauce = view.findViewById<RadioButton>(rgSauce.checkedRadioButtonId)
+            val itemOrdered = "${wingAmount.text} \n${wingType.text} \n${wingSauce.text}"
+
+            (activity as MainActivity).addItemToList(itemOrdered)
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, orderFragment)
+                replace(R.id.fragment, cartFragment)
                 commit()
             }
         }

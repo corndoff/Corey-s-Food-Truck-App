@@ -111,15 +111,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cbLettuce" />
 
-    <TextView
-        android:id="@+id/tvOrder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="something here"
-        android:textSize="26sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnOrder" />
-
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"

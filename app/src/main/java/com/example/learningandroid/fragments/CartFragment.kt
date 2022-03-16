@@ -1,8 +1,10 @@
 package com.example.learningandroid.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.isVisible
 import com.example.learningandroid.MainActivity
@@ -28,14 +30,8 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         val svItems = view.findViewById<ListView>(R.id.svItems)
         val tvItem = view.findViewById<TextView>(R.id.tvItems)
         var items = (activity as MainActivity).getItemList()
-        val newitem:List<String> = mutableListOf(
-            "isjsnfgowngowingoiwen",
-            "oasngoinfgpimwrpgkmwprgkm",
-            "ijsngijrngiorng"
-        )
-        val adapter = ArrayAdapter((context as MainActivity), R.layout.fragment_cart, newitem)
-        svItems.adapter = adapter
-
+        svItems.adapter = CustomAdapter(activity as MainActivity, items)
+        tvItem.text = "${items.count()} items in the cart"
 
         btnPlaceOrder.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
@@ -49,5 +45,35 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                 commit()
             }
         }
+    }
+
+    private class CustomAdapter(context: Context, items:List<String>): BaseAdapter(){
+
+        private val myContext: Context
+        private val myItems:List<String>
+
+        init{
+            myContext = context
+            myItems = items
+        }
+
+        override fun getCount(): Int {
+            return myItems.count()
+        }
+
+        override fun getItem(p0: Int): Any {
+            return "Test"
+        }
+
+        override fun getItemId(p0: Int): Long {
+            return p0.toLong()
+        }
+
+        override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
+            val textView = TextView((myContext as MainActivity))
+            textView.text = myItems[p0]
+            return textView
+        }
+
     }
 }

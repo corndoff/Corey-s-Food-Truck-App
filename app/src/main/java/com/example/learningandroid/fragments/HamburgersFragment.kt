@@ -43,30 +43,23 @@ class HamburgersFragment : Fragment(R.layout.fragment_hamburgers) {
         }
 
 
-        btnOrder.setOnClickListener(View.OnClickListener {
+        btnOrder.setOnClickListener{
             val meat = view.findViewById<RadioButton>(rgMeat.checkedRadioButtonId)
             val cheeseType = view.findViewById<RadioButton>(rgCheese.checkedRadioButtonId)
             val cheese = cbCheese.isChecked
             val onion = cbOnion.isChecked
             val lettuce = cbLettuce.isChecked
-            val hamburgerItem = HamburgerItem(meat.text.toString(),  (if(cheese) "\n${cheeseType.text} Cheese" else "No cheese"),
-                (if(onion) "\nOnion" else "No Onion"),
-                (if(lettuce) "\nLettuce" else "No Lettuce"))
-            val orderString = "${meat.text} Hamburger\n" +
-                    (if(cheese) "\n${cheeseType.text} Cheese" else "No cheese") +
-                    (if(onion) "\nOnion" else "No onion") +
-                    (if(lettuce) "\nLettuce" else "No lettuce")
+            val orderString = "${meat.text} Hamburger" +
+                    (if(cheese) "\n${cheeseType.text} Cheese" else "\nNo cheese") +
+                    (if(onion) "\nOnion" else "\nNo onion") +
+                    (if(lettuce) "\nLettuce" else "\nNo lettuce")
             (activity as MainActivity).addItemToList(orderString)
-            val bundle = Bundle()
-            //bundle.putString("hamburgerOrder", orderString)
-            //bundle.putSerializable("hamburgerOrder", hamburgerItem)
-            //cartFragment.arguments = bundle
 
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, cartFragment)
                 commit()
             }
-        })
+        }
 
         btnBack.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
