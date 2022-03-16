@@ -41,7 +41,7 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
         val pizzaFragment = PizzaFragment()
         val wingsFragment = WingsFragment()
         val saladsFragment = SaladsFragment()
-        val seafoodFragment = SeafoodFragment()
+        val seafoodFragment = PastaFragment()
         val cartFragment = CartFragment()
 
         btnBurgers.setOnClickListener {

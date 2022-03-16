@@ -1,7 +1,7 @@
 package com.example.learningandroid
 
 data class OrderedItems(
-    var name: String,
-    var item: List<ItemType>
+    var table: Int,
+    var item: List<String>
 ) {
 }

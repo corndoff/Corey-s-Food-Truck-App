@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/seafoodFragment"
-        android:name="com.example.learningandroid.fragments.SeafoodFragment"
+        android:name="com.example.learningandroid.fragments.PastaFragment"
         android:label="SeafoodFragment" >
         <action
             android:id="@+id/action_seafoodFragment_to_orderFragment"
