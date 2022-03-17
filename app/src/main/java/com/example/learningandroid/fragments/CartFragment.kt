@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.view.isVisible
-import com.example.learningandroid.MainActivity
+import com.example.learningandroid.ui.orderedlist.MainActivity
 import com.example.learningandroid.R
-import java.io.Serializable
 
 
 class CartFragment : Fragment(R.layout.fragment_cart) {

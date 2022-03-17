@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.example.learningandroid.MainActivity
+import com.example.learningandroid.ui.orderedlist.MainActivity
 import com.example.learningandroid.R
 
 
