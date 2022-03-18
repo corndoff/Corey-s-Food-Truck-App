@@ -94,6 +94,7 @@ class SaladsFragment : Fragment(R.layout.fragment_salads) {
 
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, orderFragment)
+                commit()
             }
         }
 

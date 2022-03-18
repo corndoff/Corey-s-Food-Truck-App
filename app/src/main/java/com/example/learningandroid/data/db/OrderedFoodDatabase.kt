@@ -8,7 +8,8 @@ import com.example.learningandroid.data.db.entity.OrderedItems
 
 @Database(
     entities = [OrderedItems::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 // everytime you update the database somehow you have to update the version or Room will throw an error
 )
 abstract class OrderedFoodDatabase: RoomDatabase() {

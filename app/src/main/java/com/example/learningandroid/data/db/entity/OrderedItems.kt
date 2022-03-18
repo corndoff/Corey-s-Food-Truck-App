@@ -9,7 +9,7 @@ data class OrderedItems(
     @ColumnInfo(name = "table_number")
     var table: Int,
     @ColumnInfo(name = "table_order")
-    var item: List<String>
+    var item: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null

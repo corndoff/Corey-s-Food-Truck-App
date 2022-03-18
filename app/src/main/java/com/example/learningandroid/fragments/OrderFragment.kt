@@ -50,24 +50,28 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
                 commit()
             }
         }
+
         btnWings.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, wingsFragment)
                 commit()
             }
         }
+
         btnSalads.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, saladsFragment)
                 commit()
             }
         }
+
         btnSeafood.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, seafoodFragment)
                 commit()
             }
         }
+
         btnPizza.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, pizzaFragment)

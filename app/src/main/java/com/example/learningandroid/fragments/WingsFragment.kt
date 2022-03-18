@@ -16,7 +16,7 @@ class WingsFragment : Fragment(R.layout.fragment_wings) {
         super.onViewCreated(view, savedInstanceState)
 
         val cartFragment = CartFragment()
-        val startFragment = StartFragment()
+        val orderFragment = OrderFragment()
         val btnOrder = view.findViewById<Button>(R.id.btnOrder)
         val btnBack = view.findViewById<Button>(R.id.btnBack)
         val rgAmount = view.findViewById<RadioGroup>(R.id.rgAmount)
@@ -39,7 +39,7 @@ class WingsFragment : Fragment(R.layout.fragment_wings) {
 
         btnBack.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, startFragment)
+                replace(R.id.fragment, orderFragment)
                 commit()
             }
         }

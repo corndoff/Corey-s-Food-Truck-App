@@ -11,16 +11,22 @@ import com.example.learningandroid.fragments.StartFragment
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
 
-class MainActivity : AppCompatActivity(), KodeinAware {
+class MainActivity : AppCompatActivity()/*, KodeinAware*/ {
 
-    override val kodein by kodein()
-    private val factory: OrderedViewModelFactory by instance()
+    /*override val kodein by kodein()
+    private val factory: OrderedViewModelFactory by instance()*/
+
+
 
     private var order:MutableList<String> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val database = OrderedFoodDatabase(this)
+        val repository = OrderRepository(database)
+        val factory = OrderedViewModelFactory(repository)
 
         val viewModel = ViewModelProvider(this, factory).get(OrderedViewModel::class.java)
 

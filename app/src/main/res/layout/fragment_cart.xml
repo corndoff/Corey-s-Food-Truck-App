@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/llView"
@@ -20,15 +20,42 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/tvItems">
 
-        <ListView
+        <ScrollView
             android:id="@+id/svItems"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="512dp"
             app:layout_constraintTop_toBottomOf="@+id/tvItems"
             tools:layout_editor_absoluteX="0dp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="40dp"
+        android:text="Table number:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlaceOrder"
+        app:layout_constraintEnd_toStartOf="@+id/edTableNumber"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+        android:id="@+id/edTableNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="40dp"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView5" />
 
     <Button
         android:id="@+id/btnPlaceOrder"
