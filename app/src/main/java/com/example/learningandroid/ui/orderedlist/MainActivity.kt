@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity()/*, KodeinAware*/ {
 
     private var order:MutableList<String> = mutableListOf()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity()/*, KodeinAware*/ {
 
         val startFragment = StartFragment()
         val fragment = findViewById<FrameLayout>(R.id.navFragment)
+
 
         supportFragmentManager.beginTransaction().apply {
             replace(fragment.id, startFragment)
@@ -46,6 +48,7 @@ class MainActivity : AppCompatActivity()/*, KodeinAware*/ {
 
     fun addItemToList(item: String){
         order.add(item)
+
     }
 
 }

@@ -6,7 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.learningandroid.OrderedItemsAdapter
 import com.example.learningandroid.ui.orderedlist.MainActivity
 import com.example.learningandroid.R
 import com.example.learningandroid.data.db.OrderedFoodDatabase
@@ -14,6 +18,7 @@ import com.example.learningandroid.data.db.entity.OrderedItems
 import com.example.learningandroid.data.repositories.OrderRepository
 import com.example.learningandroid.ui.orderedlist.OrderedViewModel
 import com.example.learningandroid.ui.orderedlist.OrderedViewModelFactory
+import kotlinx.android.synthetic.main.fragment_cart.*
 
 
 class CartFragment : Fragment(R.layout.fragment_cart) {
@@ -34,13 +39,20 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         val btnPlaceOrder = view.findViewById<Button>(R.id.btnPlaceOrder)
         val startFragment = StartFragment()
         val orderFragment = OrderFragment()
-        val svItems = view.findViewById<ScrollView>(R.id.svItems)
-        val tvItem = view.findViewById<TextView>(R.id.tvItems)
+        val rvItems = view.findViewById<RecyclerView>(R.id.rvItems)
         val edTableNumber = view.findViewById<EditText>(R.id.edTableNumber)
         val items = (activity as MainActivity).getItemList()
-        // Need to figure out the ScrollView
-        //svItems. = CustomAdapter(activity as MainActivity, items)
-        tvItem.text = "${items.count()} items in the cart"
+        val adapter = OrderedItemsAdapter(items, viewModel)
+        rvItems.layoutManager = LinearLayoutManager(activity as MainActivity)
+        rvItems.adapter = adapter
+        adapter.notifyDataSetChanged()
+
+        (activity as MainActivity).getItemList()
+        //.observe(viewLifecycleOwner, Observer {
+        //    adapter.items = it
+        //    adapter.notifyDataSetChanged()
+        //})
+
 
         btnPlaceOrder.setOnClickListener {
             if(edTableNumber.text.isEmpty()){
