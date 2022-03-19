@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learningandroid.OrderedItemsAdapter
+import com.example.learningandroid.PlacedOrdersAdapter
 import com.example.learningandroid.ui.orderedlist.MainActivity
 import com.example.learningandroid.R
 import com.example.learningandroid.data.db.OrderedFoodDatabase
@@ -21,7 +22,7 @@ import com.example.learningandroid.ui.orderedlist.OrderedViewModelFactory
 import kotlinx.android.synthetic.main.fragment_cart.*
 
 
-class CartFragment : Fragment(R.layout.fragment_cart) {
+class PlacedOrdersFragment : Fragment(R.layout.fragment_placed_orders) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,36 +35,21 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         val viewModel = ViewModelProvider(this, factory).get(OrderedViewModel::class.java)
 
         val btnBack = view.findViewById<Button>(R.id.btnBack)
-        val btnPlaceOrder = view.findViewById<Button>(R.id.btnPlaceOrder)
         val startFragment = StartFragment()
-        val orderFragment = OrderFragment()
         val rvItems = view.findViewById<RecyclerView>(R.id.rvItems)
-        val edTableNumber = view.findViewById<EditText>(R.id.edTableNumber)
-        val items = (activity as MainActivity).getItemList()
-        val adapter = OrderedItemsAdapter(items)
+        val adapter = PlacedOrdersAdapter(listOf())
         rvItems.layoutManager = LinearLayoutManager(activity as MainActivity)
         rvItems.adapter = adapter
 
+        viewModel.getAllOrderedItems().observe(this, Observer {
+            adapter.items = it
+            adapter.notifyDataSetChanged()
 
-        btnPlaceOrder.setOnClickListener {
-            if(edTableNumber.text.isEmpty()){
-                Toast.makeText(activity as MainActivity, "Please provide your table number", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            for (item in items) {
-                val orderedItem = OrderedItems(edTableNumber.text.toString().toInt(), item)
-                viewModel.upsert(orderedItem)
-            }
-            parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, startFragment)
-                commit()
-            }
-
-        }
+        })
 
         btnBack.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, orderFragment)
+                replace(R.id.fragment, startFragment)
                 commit()
             }
         }

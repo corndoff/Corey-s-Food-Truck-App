@@ -31,10 +31,18 @@ class StartFragment : Fragment(R.layout.fragment_start) {
         val btnOrder = view.findViewById<Button>(R.id.btnOrder)
         val btnSeeOrders= view.findViewById<Button>(R.id.btnSeeOrders)
         val orderFragment = OrderFragment()
+        val placedOrdersFragment = PlacedOrdersFragment()
 
         btnOrder.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, orderFragment)
+                commit()
+            }
+        }
+
+        btnSeeOrders.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment, placedOrdersFragment)
                 commit()
             }
         }

@@ -8,6 +8,7 @@ import android.widget.CheckBox
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.view.isVisible
+import com.example.learningandroid.OrderedItemsAdapter
 import com.example.learningandroid.ui.orderedlist.MainActivity
 import com.example.learningandroid.R
 
@@ -30,6 +31,8 @@ class HamburgersFragment : Fragment(R.layout.fragment_hamburgers) {
         val orderFragment = OrderFragment()
         val cartFragment = CartFragment()
 
+        val adapter = OrderedItemsAdapter((activity as MainActivity).getItemList(),)
+
 
         cbCheese.setOnClickListener{
             if(cbCheese.isChecked){
@@ -51,6 +54,7 @@ class HamburgersFragment : Fragment(R.layout.fragment_hamburgers) {
                     (if(onion) "\nOnion" else "\nNo onion") +
                     (if(lettuce) "\nLettuce" else "\nNo lettuce")
             (activity as MainActivity).addItemToList(orderString)
+            adapter.notifyDataSetChanged()
 
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, cartFragment)

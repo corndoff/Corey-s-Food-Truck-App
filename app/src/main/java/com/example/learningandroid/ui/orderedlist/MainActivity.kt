@@ -3,6 +3,7 @@ package com.example.learningandroid.ui.orderedlist
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import com.example.learningandroid.R
 import com.example.learningandroid.data.db.OrderedFoodDatabase
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity()/*, KodeinAware*/ {
             commit()
         }
     }
-    fun getItemList(): List<String>{
+    fun getItemList(): List<String> {
         var items: MutableList<String> = mutableListOf()
         items = order
         return items
