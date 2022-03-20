@@ -38,11 +38,16 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         val startFragment = StartFragment()
         val orderFragment = OrderFragment()
         val rvItems = view.findViewById<RecyclerView>(R.id.rvItems)
+        val ivDelete = view.findViewById<ImageView>(R.id.ivDelete)
         val edTableNumber = view.findViewById<EditText>(R.id.edTableNumber)
         val items = (activity as MainActivity).getItemList()
         val adapter = OrderedItemsAdapter(items)
         rvItems.layoutManager = LinearLayoutManager(activity as MainActivity)
         rvItems.adapter = adapter
+
+        ivDelete.setOnClickListener {
+
+        }
 
 
         btnPlaceOrder.setOnClickListener {
@@ -54,6 +59,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                 val orderedItem = OrderedItems(edTableNumber.text.toString().toInt(), item)
                 viewModel.upsert(orderedItem)
             }
+            (activity as MainActivity).clearList()
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, startFragment)
                 commit()

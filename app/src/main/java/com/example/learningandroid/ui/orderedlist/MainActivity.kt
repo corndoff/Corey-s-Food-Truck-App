@@ -49,7 +49,14 @@ class MainActivity : AppCompatActivity()/*, KodeinAware*/ {
 
     fun addItemToList(item: String){
         order.add(item)
+    }
 
+    fun deleteItemFromList(position: Int){
+        order.removeAt(position)
+    }
+
+    fun clearList(){
+        order.clear()
     }
 
 }

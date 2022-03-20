@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HamburgersFragment">
 
     <TextView
@@ -29,7 +29,7 @@
             android:id="@+id/rbSpaghetti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Spaghetti" />
+            android:text="Spaghetti alla Carbonara" />
 
         <RadioButton
             android:id="@+id/rbFettucciniAlfredo"
@@ -51,6 +51,19 @@
 
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/tvPastaDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/btnOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgPastaDish" />
+
     <Button
         android:id="@+id/btnOrder"
         android:layout_width="wrap_content"
@@ -71,8 +84,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnOrder" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,4 +2,9 @@
     <string name="app_name">LearningAndroid</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Spaghetti">Spaghetti (long thin strands of pasta) with bacon and a creamy sauce made from eggs, Pecorino or Parmesan and black pepper</string>
+    <string name="FettucciniAlfredo">Made from fettuccine pasta tossed with Parmesan cheese and butter. As the cheese melts, it emulsifies the liquids to form a smooth and rich coating on the pasta.</string>
+    <string name="ChickenParm">Tender chicken breasts coated with grated Parmesan and Italian breadcrumbs, baked with our classic marinara sauce, topped with three Italian cheeses and accompanied by pasta with tomato sauce and freshly grated Parmesan</string>
+    <string name="Lasagna"> Flat and expanded pasta sheet, made with Parmigiano-Reggiano (Parmesan cheese), Béchamel sauce (white sauce), and ragù (a meat-based sauce).</string>
 </resources>

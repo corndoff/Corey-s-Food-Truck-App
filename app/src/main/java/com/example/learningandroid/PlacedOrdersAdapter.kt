@@ -32,6 +32,11 @@ class PlacedOrdersAdapter(
         val curOrderedItem = items[position]
         holder.itemView.tvItem.text = curOrderedItem.item
         holder.itemView.tvTable.text = curOrderedItem.table.toString()
+
+        holder.itemView.ivCheck.setOnClickListener{
+            holder.itemView.ivCheck.visibility = View.INVISIBLE
+            holder.itemView.ivCheckGreen.visibility = View.VISIBLE
+        }
     }
 
     inner class OrderedViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
