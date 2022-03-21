@@ -15,9 +15,11 @@ import kotlinx.android.synthetic.main.fragment_order_item.view.tvItem
 import kotlinx.android.synthetic.main.fragment_placed_item.view.*
 
 class OrderedItemsAdapter(
-    var items: List<String>
+    var items: List<String>,
+    context: Context
 ): RecyclerView.Adapter<OrderedItemsAdapter.OrderedViewHolder>() {
 
+    private var myContext = context
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -35,7 +37,10 @@ class OrderedItemsAdapter(
         val curOrderedItem = items[position]
         holder.itemView.tvItem.text = curOrderedItem
 
-        //Setup interface to call deleteItemFromList from MainActivity then call Interface here
+        holder.itemView.ivDelete.setOnClickListener {
+            (myContext as MainActivity).deleteItemFromList(position)
+            notifyDataSetChanged()
+        }
     }
 
     inner class OrderedViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)

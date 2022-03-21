@@ -31,7 +31,7 @@ class HamburgersFragment : Fragment(R.layout.fragment_hamburgers) {
         val orderFragment = OrderFragment()
         val cartFragment = CartFragment()
 
-        val adapter = OrderedItemsAdapter((activity as MainActivity).getItemList(),)
+        val adapter = OrderedItemsAdapter((activity as MainActivity).getItemList(), (activity as MainActivity))
 
 
         cbCheese.setOnClickListener{

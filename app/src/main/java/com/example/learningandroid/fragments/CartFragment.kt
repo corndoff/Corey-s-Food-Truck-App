@@ -41,13 +41,9 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         val ivDelete = view.findViewById<ImageView>(R.id.ivDelete)
         val edTableNumber = view.findViewById<EditText>(R.id.edTableNumber)
         val items = (activity as MainActivity).getItemList()
-        val adapter = OrderedItemsAdapter(items)
+        val adapter = OrderedItemsAdapter(items, (activity as MainActivity))
         rvItems.layoutManager = LinearLayoutManager(activity as MainActivity)
         rvItems.adapter = adapter
-
-        ivDelete.setOnClickListener {
-
-        }
 
 
         btnPlaceOrder.setOnClickListener {

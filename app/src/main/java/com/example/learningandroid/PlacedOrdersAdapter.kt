@@ -1,11 +1,15 @@
 package com.example.learningandroid
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
+import com.example.learningandroid.data.db.entity.FinishedItems
 import com.example.learningandroid.data.db.entity.OrderedItems
+import com.example.learningandroid.ui.orderedlist.FinishedViewModel
+import com.example.learningandroid.ui.orderedlist.MainActivity
 import com.example.learningandroid.ui.orderedlist.OrderedViewModel
 import kotlinx.android.synthetic.main.fragment_cart.view.*
 import kotlinx.android.synthetic.main.fragment_order_item.view.*
@@ -13,8 +17,11 @@ import kotlinx.android.synthetic.main.fragment_order_item.view.tvItem
 import kotlinx.android.synthetic.main.fragment_placed_item.view.*
 
 class PlacedOrdersAdapter(
-    var items: List<OrderedItems>
+    var items: List<OrderedItems>,
+    private val viewModelOrdered: OrderedViewModel,
+    private val viewModelFinished: FinishedViewModel
 ): RecyclerView.Adapter<PlacedOrdersAdapter.OrderedViewHolder>() {
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -34,8 +41,12 @@ class PlacedOrdersAdapter(
         holder.itemView.tvTable.text = curOrderedItem.table.toString()
 
         holder.itemView.ivCheck.setOnClickListener{
-            holder.itemView.ivCheck.visibility = View.INVISIBLE
-            holder.itemView.ivCheckGreen.visibility = View.VISIBLE
+            //holder.itemView.ivCheck.visibility = View.INVISIBLE
+            //holder.itemView.ivCheckGreen.visibility = View.VISIBLE
+            val finishedItem = FinishedItems(curOrderedItem.table, curOrderedItem.item)
+            viewModelFinished.upsert(finishedItem)
+            viewModelOrdered.delete(curOrderedItem)
+            notifyDataSetChanged()
         }
     }
 
