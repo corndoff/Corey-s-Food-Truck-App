@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.example.learningandroid.R
+import com.example.learningandroid.ui.orderedlist.CheckEmployeeId
+import com.example.learningandroid.ui.orderedlist.MainActivity
 
 
 class StartFragment : Fragment(R.layout.fragment_start) {
@@ -28,21 +30,18 @@ class StartFragment : Fragment(R.layout.fragment_start) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnOrder = view.findViewById<Button>(R.id.btnOrder)
-        val btnSeeOrders= view.findViewById<Button>(R.id.btnSeeOrders)
+        val btnCustomer = view.findViewById<Button>(R.id.btnCustomer)
+        val btnEmployee= view.findViewById<Button>(R.id.btnEmployee)
         val orderFragment = OrderFragment()
-        val employeeFragment = EmployeeFragment()
 
-        btnOrder.setOnClickListener {
-            parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, orderFragment)
-                commit()
-            }
+        btnEmployee.setOnClickListener {
+            val checkEmployeeId = CheckEmployeeId(activity as MainActivity)
+            checkEmployeeId.show(parentFragmentManager, "Check Employee Id")
         }
 
-        btnSeeOrders.setOnClickListener {
+        btnCustomer.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, employeeFragment)
+                replace(R.id.fragment, orderFragment)
                 commit()
             }
         }

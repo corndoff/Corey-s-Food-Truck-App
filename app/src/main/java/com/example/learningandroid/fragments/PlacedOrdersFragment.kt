@@ -40,13 +40,13 @@ class PlacedOrdersFragment : Fragment(R.layout.fragment_placed_orders) {
         val orderedViewModel = ViewModelProvider(this, orderedFactory).get(OrderedViewModel::class.java)
 
         val btnBack = view.findViewById<Button>(R.id.btnBack)
-        val startFragment = StartFragment()
+        val employeeFragment = EmployeeFragment()
         val rvItems = view.findViewById<RecyclerView>(R.id.rvItems)
         val adapter = PlacedOrdersAdapter(listOf(), orderedViewModel, finishedViewModel)
         rvItems.layoutManager = LinearLayoutManager(activity as MainActivity)
         rvItems.adapter = adapter
 
-        orderedViewModel.getAllOrderedItems().observe(this, Observer {
+        orderedViewModel.getAllOrderedItems().observe(viewLifecycleOwner, Observer {
             adapter.items = it
             adapter.notifyDataSetChanged()
 
@@ -54,7 +54,7 @@ class PlacedOrdersFragment : Fragment(R.layout.fragment_placed_orders) {
 
         btnBack.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, startFragment)
+                replace(R.id.fragment, employeeFragment)
                 commit()
             }
         }

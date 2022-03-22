@@ -4,10 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2985" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/layout/dialog_check_employee.xml" value="0.3582427536231884" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/layout/fragment_cart.xml" value="0.3582427536231884" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/layout/fragment_employee.xml" value="0.3582427536231884" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/layout/fragment_order.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/layout/fragment_order_item.xml" value="0.3582427536231884" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/layout/fragment_pasta.xml" value="0.3582427536231884" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/layout/fragment_start.xml" value="0.3582427536231884" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2985" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/LearningAndroid2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2985" />
         <entry key="..\:/Users/corey/StudioProjects/LearningAndroid/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
         <entry key="..\:/Users/corey/StudioProjects/LearningAndroid/app/src/main/res/layout/fragment_cart.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/corey/StudioProjects/LearningAndroid/app/src/main/res/layout/fragment_hamburgers.xml" value="0.36666666666666664" />
@@ -15,26 +22,16 @@
         <entry key="..\:/Users/corey/StudioProjects/LearningAndroid/app/src/main/res/layout/fragment_pasta.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/corey/StudioProjects/LearningAndroid/app/src/main/res/layout/fragment_salads.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/corey/StudioProjects/LearningAndroid/app/src/main/res/layout/fragment_seafood.xml" value="0.36666666666666664" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/drawable/ic_pizza_background.xml" value="0.2703125" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/dialog_check_employee.xml" value="0.25416666666666665" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_cart.xml" value="0.25416666666666665" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_employee.xml" value="0.25416666666666665" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_finished_orders.xml" value="0.25416666666666665" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_hamburger.xml" value="0.36666666666666664" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_hamburgers.xml" value="0.23867753623188406" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_order.xml" value="0.36666666666666664" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_order_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_pasta.xml" value="0.264" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_pizza.xml" value="0.23867753623188406" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_placed_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_placed_orders.xml" value="0.25416666666666665" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_salads.xml" value="0.23867753623188406" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_seadfood.xml" value="0.23867753623188406" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_start.xml" value="0.20520833333333333" />
         <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/layout/fragment_wings.xml" value="0.23867753623188406" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/mipmap-anydpi-v26/ic_pizza.xml" value="0.2703125" />
-        <entry key="..\:/source/AndroidStudioProjects/LearningAndroid/app/src/main/res/mipmap-anydpi-v26/ic_pizza_round.xml" value="0.2703125" />
       </map>
     </option>
   </component>

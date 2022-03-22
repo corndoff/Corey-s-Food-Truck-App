@@ -30,8 +30,11 @@ class EmployeeFragment : Fragment(R.layout.fragment_employee) {
 
         val btnServer = view.findViewById<Button>(R.id.btnServer)
         val btnCook= view.findViewById<Button>(R.id.btnCook)
+        val btnLogout = view.findViewById<Button>(R.id.btnLogout)
         val finishedOrdersFragment = FinishedOrdersFragment()
         val placedOrdersFragment = PlacedOrdersFragment()
+        val startFragment = StartFragment()
+
 
         btnCook.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
@@ -43,6 +46,13 @@ class EmployeeFragment : Fragment(R.layout.fragment_employee) {
         btnServer.setOnClickListener {
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment, finishedOrdersFragment)
+                commit()
+            }
+        }
+
+        btnLogout.setOnClickListener {
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment, startFragment)
                 commit()
             }
         }
