@@ -1,0 +1,53 @@
+package com.example.learningandroid
+
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.view.get
+import androidx.recyclerview.widget.RecyclerView
+import com.example.learningandroid.data.db.entity.FinishedItems
+import com.example.learningandroid.data.db.entity.OrderedItems
+import com.example.learningandroid.ui.orderedlist.FinishedViewModel
+import com.example.learningandroid.ui.orderedlist.MainActivity
+import com.example.learningandroid.ui.orderedlist.OrderedViewModel
+import kotlinx.android.synthetic.main.fragment_cart.view.*
+import kotlinx.android.synthetic.main.fragment_order_item.view.*
+import kotlinx.android.synthetic.main.fragment_order_item.view.tvItem
+import kotlinx.android.synthetic.main.fragment_placed_item.view.*
+
+class FinishedOrdersAdapter(
+    var items: List<FinishedItems>,
+    private val viewModelFinished: FinishedViewModel
+): RecyclerView.Adapter<FinishedOrdersAdapter.FinishedOrderedViewHolder>() {
+
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): FinishedOrdersAdapter.FinishedOrderedViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_placed_item, parent, false)
+        return FinishedOrderedViewHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return items.size
+    }
+
+    override fun onBindViewHolder(holder: FinishedOrdersAdapter.FinishedOrderedViewHolder, position: Int) {
+        val curOrderedItem = items[position]
+        holder.itemView.tvItem.text = curOrderedItem.item
+        holder.itemView.tvTable.text = curOrderedItem.table.toString()
+
+        holder.itemView.ivCheck.setOnClickListener{
+            //holder.itemView.ivCheck.visibility = View.INVISIBLE
+            //holder.itemView.ivCheckGreen.visibility = View.VISIBLE
+            //val finishedItem = FinishedItems(curOrderedItem.table, curOrderedItem.item)
+            viewModelFinished.delete(curOrderedItem)
+            //viewModelOrdered.delete(curOrderedItem)
+            notifyDataSetChanged()
+        }
+    }
+
+    inner class FinishedOrderedViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+}

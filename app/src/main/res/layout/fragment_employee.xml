@@ -11,7 +11,7 @@
             android:id="@+id/tvQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Are you ordering or viewing orders?"
+            android:text="Are you a cook or a server?"
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -20,22 +20,22 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btnCustomer"
+            android:id="@+id/btnCook"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Customer"
+            android:text="Cook"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btnEmployee" />
+            app:layout_constraintStart_toEndOf="@+id/btnServer" />
 
         <Button
-            android:id="@+id/btnEmployee"
+            android:id="@+id/btnServer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Employee"
+            android:text="Server"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnCustomer"
+            app:layout_constraintEnd_toStartOf="@+id/btnCook"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
