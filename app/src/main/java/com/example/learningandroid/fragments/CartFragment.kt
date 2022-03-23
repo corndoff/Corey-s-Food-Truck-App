@@ -18,6 +18,7 @@ import com.example.learningandroid.data.db.entity.OrderedItems
 import com.example.learningandroid.data.repositories.OrderRepository
 import com.example.learningandroid.ui.orderedlist.OrderedViewModel
 import com.example.learningandroid.ui.orderedlist.OrderedViewModelFactory
+import com.example.learningandroid.ui.orderedlist.PaymentDialog
 import kotlinx.android.synthetic.main.fragment_cart.*
 
 
@@ -51,15 +52,18 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                 Toast.makeText(activity as MainActivity, "Please provide your table number", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            for (item in items) {
-                val orderedItem = OrderedItems(edTableNumber.text.toString().toInt(), item)
-                viewModel.upsert(orderedItem)
-            }
-            (activity as MainActivity).clearList()
-            parentFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment, startFragment)
-                commit()
-            }
+
+            val paymentDialog = PaymentDialog()
+            paymentDialog.show(parentFragmentManager, "Payment Window")
+            //for (item in items) {
+            //    val orderedItem = OrderedItems(edTableNumber.text.toString().toInt(), item)
+            //    viewModel.upsert(orderedItem)
+            //}
+            //(activity as MainActivity).clearList()
+            //parentFragmentManager.beginTransaction().apply {
+            //    replace(R.id.fragment, startFragment)
+            //    commit()
+            //}
 
         }
 
