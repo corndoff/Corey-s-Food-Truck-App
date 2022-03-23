@@ -49,7 +49,6 @@ class PlacedOrdersFragment : Fragment(R.layout.fragment_placed_orders) {
         orderedViewModel.getAllOrderedItems().observe(viewLifecycleOwner, Observer {
             adapter.items = it
             adapter.notifyDataSetChanged()
-
         })
 
         btnBack.setOnClickListener {

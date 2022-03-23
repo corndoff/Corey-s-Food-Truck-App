@@ -36,10 +36,8 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
         val btnBack = view.findViewById<Button>(R.id.btnBack)
         val btnPlaceOrder = view.findViewById<Button>(R.id.btnPlaceOrder)
-        val startFragment = StartFragment()
         val orderFragment = OrderFragment()
         val rvItems = view.findViewById<RecyclerView>(R.id.rvItems)
-        val ivDelete = view.findViewById<ImageView>(R.id.ivDelete)
         val edTableNumber = view.findViewById<EditText>(R.id.edTableNumber)
         val items = (activity as MainActivity).getItemList()
         val adapter = OrderedItemsAdapter(items, (activity as MainActivity))
@@ -53,18 +51,12 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
                 return@setOnClickListener
             }
 
-            val paymentDialog = PaymentDialog()
+            if(items.isEmpty()){
+                Toast.makeText(activity as MainActivity, "No items are in your cart", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val paymentDialog = PaymentDialog(items, viewModel, edTableNumber.text.toString().toInt())
             paymentDialog.show(parentFragmentManager, "Payment Window")
-            //for (item in items) {
-            //    val orderedItem = OrderedItems(edTableNumber.text.toString().toInt(), item)
-            //    viewModel.upsert(orderedItem)
-            //}
-            //(activity as MainActivity).clearList()
-            //parentFragmentManager.beginTransaction().apply {
-            //    replace(R.id.fragment, startFragment)
-            //    commit()
-            //}
-
         }
 
         btnBack.setOnClickListener {

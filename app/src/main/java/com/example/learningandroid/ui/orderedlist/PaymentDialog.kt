@@ -15,14 +15,17 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.braintreepayments.cardform.view.CardForm
 import com.example.learningandroid.R
+import com.example.learningandroid.data.db.entity.OrderedItems
 import com.example.learningandroid.fragments.EmployeeFragment
 import com.example.learningandroid.fragments.StartFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_check_employee.*
 
-class PaymentDialog(): DialogFragment(R.layout.dialog_payment) { //AppCompatDialog(context) {
+class PaymentDialog(list: List<String>, ViewModel: OrderedViewModel, TableNumber: Int): DialogFragment(R.layout.dialog_payment) { //AppCompatDialog(context) {
 
-
+    private val items: List<String> = list
+    private val viewModel = ViewModel
+    private val tableNumber = TableNumber
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,7 +33,6 @@ class PaymentDialog(): DialogFragment(R.layout.dialog_payment) { //AppCompatDial
         val btnPayNow = view.findViewById<Button>(R.id.btnPayNow)
         val btnCancel = view.findViewById<Button>(R.id.btnCancel)
         val cfPayNow = view.findViewById<CardForm>(R.id.cfPayNow)
-        val employeeIdList = listOf<Int>(1, 2, 3)
         val startFragment = StartFragment()
 
         cfPayNow.cardRequired(true)
@@ -41,6 +43,19 @@ class PaymentDialog(): DialogFragment(R.layout.dialog_payment) { //AppCompatDial
 
         btnPayNow?.setOnClickListener {
             cfPayNow.validate()
+            if(cfPayNow.isValid()){
+                dismiss()
+                for (item in items) {
+                    val orderedItem = OrderedItems(tableNumber, item)
+                    viewModel.upsert(orderedItem)
+                }
+                (activity as MainActivity).clearList()
+                parentFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment, startFragment)
+                    commit()
+                    Toast.makeText(activity as MainActivity, "Thank you! Your order will be out shortly", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         btnCancel?.setOnClickListener {
